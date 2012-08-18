@@ -26,7 +26,7 @@ class git {
   }
 
   package { 'puppet-lint':
-    ensure   => present,
+    ensure   => latest,
     provider => 'gem',
   }
 
