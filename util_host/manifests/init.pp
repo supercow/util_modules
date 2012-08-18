@@ -1,8 +1,22 @@
-class util_host {
+class util_host(
+  $user = 'root',
+  $user_home = '/root',
+) {
 
-  #misc packages
-  $misc_packages = [
-    'netcat',
-  ]
+  File {
+    owner => $user,
+    group => $user,
+    mode  => '0644',
+  }
+
+  package { $util_host::params::misc_packages:
+    ensure => present,
+  }
+
+  include $util_host::params::features
+
+  file { "${user_home}/src":
+    ensure => directory,
+  }
 
 }
