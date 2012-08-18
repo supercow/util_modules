@@ -1,0 +1,6 @@
+[user]
+	name = James Sweeny
+	email = james.sweeny@puppetlabs.com
+
+[color]
+  ui = true
