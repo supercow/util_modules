@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# This must be specified as a series of arguments to puppet-lint
+# example: puppet_lint_exclusions='--no-documentation-check --no-star_comments-check'
+puppet_lint_exclusions='--no-documentation-check'
+
+puppet_lint_warning_given=false
+puppet_parser_validated=true
+abort_triggered=false
+
+function puppet_validate() {
+  puppet-lint --with-filename $puppet_lint_exclusions $file |grep . && puppet_lint_warning_given=true
+  puppet parser validate --color=false $file || puppet_parser_validated=false
+}
+
+function abort() {
+  echo Commit aborted: $1
+  exit 1
+}
+
+commit=`git rev-parse --verify HEAD`
+files=`git diff-index --name-only $commit`
+
+puppet_file_regex='\.pp$'
+
+for file in $files; do
+  echo $file | grep $puppet_file_regex >/dev/null && puppet_validate $file
+done
+
+[ $puppet_parser_validated == true ] || abort 'parser'
+[ $puppet_lint_warning_given == true ] && abort 'linter'
+
+exit 0
+

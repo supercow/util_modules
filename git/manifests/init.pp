@@ -1,6 +1,8 @@
 class git {
+
+  $hooks_dir = '/usr/share/git-core/templates/hooks'
   package { 'git':
-    ensure => present,
+   ensure => present,
   }
 
   File {
@@ -15,11 +17,21 @@ class git {
   }
 
   file { '/usr/bin/git-completion.sh':
-   source => "puppet:///modules/${module_name}/git-completion.sh",
-   mode   => '0755',
+    source => "puppet:///modules/${module_name}/git-completion.sh",
+    mode   => '0755',
   }
 
   file { '/etc/profile.d/git-completion.sh':
     content => 'source /usr/bin/git-completion.sh',
+  }
+
+  package { 'puppet-lint':
+    ensure   => present,
+    provider => 'gem',
+  }
+
+  file { "${hooks_dir}/pre-commit":
+    source => "puppet:///modules/${module_name}/pre-commit",
+    mode   => '0755',
   }
 }
