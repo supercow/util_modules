@@ -3,6 +3,9 @@
 " Vim customizations for Puppet Labs
 " This should be useful for presentations, demos, and training.
 
+" Allow backspacing over anything in insert mode
+set backspace=indent,eol,start
+
 set nocompatible
 filetype plugin on
 filetype indent on

@@ -2,7 +2,7 @@ class util_host::params {
 
   #minor packages that don't deserve their own module
   $misc_packages = [
-    'netcat',
+    'nc',
   ]
 
   #features (classes/modules) that will be included

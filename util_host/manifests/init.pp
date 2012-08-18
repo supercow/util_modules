@@ -2,6 +2,7 @@ class util_host(
   $user = 'root',
   $user_home = '/root',
 ) {
+  include util_host::params
 
   File {
     owner => $user,
@@ -13,7 +14,7 @@ class util_host(
     ensure => present,
   }
 
-  include $util_host::params::features
+  class {$util_host::params::features: }
 
   file { "${user_home}/src":
     ensure => directory,

@@ -1,7 +1,7 @@
 class rcfiles::vim {
-  
+
   include rcfiles::params
-  
+
   file { $rcfiles::params::vimfiles_path:
     ensure  => directory,
     source  => "puppet:///modules/${module_name}/vim",
