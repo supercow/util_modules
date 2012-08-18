@@ -8,13 +8,14 @@ resolv-file=/etc/dnsmasq.resolv
 # Add other name servers here, with domain specs if they are for
 # non-public domains.
 #server=/localnet/192.168.0.1
-server=/puppetlabs.lan/<%= puppet_dns_svr1 %><% if puppet_dns_svr2 != nil %>/<%= puppet_dns_svr2 %><% end %>
-server=/puppetlabs.com/<%= puppet_dns_svr1 %><% if puppet_dns_svr2 != nil %>/<%= puppet_dns_svr2 %><% end %>
+server=/puppetlabs.lan/puppetlabs.com/<%= puppet_dns_svr1 %>
+<% if puppet_dns_svr2 != nil -%>
+server=/puppetlabs.lan/puppetlabs.com//<%= puppet_dns_svr2 %>
+<% end -%>
 
 # Example of routing PTR queries to nameservers: this will send all
 # address->name queries for 192.168.3/24 to nameserver 10.1.2.3
 #server=/3.168.192.in-addr.arpa/10.1.2.3
-server=<%= puppet_dns_svr1 %><% if puppet_dns_svr2 != nil %>/<%= puppet_dns_svr2 %><% end %>
 
 # Add local-only domains here, queries in these domains are answered
 # from /etc/hosts or DHCP only.
@@ -38,6 +39,6 @@ domain=local
 # a lease time. If you have more than one network, you will need to
 # repeat this for each network on which you want to supply DHCP
 # service.
-dhcp-range=172.16.155.64,172.16.155.128,30m
+dhcp-range=172.16.199.64,172.16.199.128,30m
 
 conf-dir=/etc/dnsmasq.d

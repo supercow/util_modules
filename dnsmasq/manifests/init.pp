@@ -19,6 +19,6 @@ class dnsmasq(
   service { 'dnsmasq':
     ensure    => 'running',
     enable    => 'true',
-    subscribe => File['/etc/dnsmasq.conf'],
+    subscribe => [File['/etc/dnsmasq.conf'],Package['dnsmasq']],
   }
 }
