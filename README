@@ -4,3 +4,5 @@ This may be useful for other people, but is purpose built for James Sweeny
 
 james.sweeny@puppetlabs.com
 james.sweeny@gmail.com
+
+Everything should be running as needed after including the util_host class
