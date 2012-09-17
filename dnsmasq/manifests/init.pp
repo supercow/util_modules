@@ -7,13 +7,20 @@ class dnsmasq(
     ensure => present,
   }
 
-  file { '/etc/dnsmasq.conf':
+  File {
     ensure  => 'file',
-    content => template('dnsmasq/dnsmasq.conf.erb'),
     group   => 'root',
-    mode    => '644',
     owner   => 'root',
+    mode    => '0644',
     require => Package['dnsmasq'],
+  }
+
+  file { '/etc/dnsmasq.conf':
+    content => template('dnsmasq/dnsmasq.conf.erb'),
+  }
+
+  file { '/etc/dnsmasq.resolv':
+    content => template('dnsmasq/dnsmasq.resolv.erb'),
   }
 
   service { 'dnsmasq':

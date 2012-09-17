@@ -19,7 +19,7 @@ server=/puppetlabs.lan/puppetlabs.com//<%= puppet_dns_svr2 %>
 
 # Add local-only domains here, queries in these domains are answered
 # from /etc/hosts or DHCP only.
-local=/<%= @domain %>/
+local=/fusion.local/
 
 # Set this (and domain: see below) if you want to have a domain
 # automatically added to simple names in a hosts-file.
@@ -32,7 +32,7 @@ expand-hosts
 # 2) Sets the "domain" DHCP option thereby potentially setting the
 #    domain of all systems configured by DHCP
 # 3) Provides the domain part for "expand-hosts"
-domain=local
+domain=fusion.local
 
 # Uncomment this to enable the integrated DHCP server, you need
 # to supply the range of addresses available for lease and optionally
@@ -44,4 +44,3 @@ dhcp-range=172.16.199.64,172.16.199.128,30m
 conf-dir=/etc/dnsmasq.d
 
 dhcp-option=option:router,172.16.199.2
-
