@@ -2,7 +2,9 @@ class util_host(
   $user = 'root',
   $user_home = '/root',
 ) {
+
   include util_host::params
+  include util_host::envpuppet
 
   File {
     owner => $user,
