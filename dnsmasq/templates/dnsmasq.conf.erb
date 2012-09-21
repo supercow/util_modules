@@ -8,9 +8,9 @@ resolv-file=/etc/dnsmasq.resolv
 # Add other name servers here, with domain specs if they are for
 # non-public domains.
 #server=/localnet/192.168.0.1
-server=/puppetlabs.lan/puppetlabs.com/<%= puppet_dns_svr1 %>
+server=/puppetlabs.lan/puppetlabs.net/<%= puppet_dns_svr1 %>
 <% if puppet_dns_svr2 != nil -%>
-server=/puppetlabs.lan/puppetlabs.com//<%= puppet_dns_svr2 %>
+server=/puppetlabs.lan/puppetlabs.net//<%= puppet_dns_svr2 %>
 <% end -%>
 
 # Example of routing PTR queries to nameservers: this will send all
