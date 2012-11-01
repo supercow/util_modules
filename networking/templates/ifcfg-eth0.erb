@@ -1,0 +1,12 @@
+DEVICE="eth0"
+<% if ! @dhcp_enabled -%>
+NETWORK=<%= @network %>
+NETMASK=<%= @netmask %>
+IPADDR=<%= @static_ip %>
+<% else -%>
+BOOTPROTO="dhcp"
+<% end -%>
+IPV6INIT="yes"
+NM_CONTROLLED="no"
+ONBOOT="yes"
+TYPE="Ethernet"

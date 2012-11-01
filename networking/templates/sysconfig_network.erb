@@ -1,0 +1,5 @@
+NETWORKING=yes
+HOSTNAME=<%= @hostname %>
+<% if ! @dhcp_enabled -%>
+GATEWAY=<%= @default_gateway %>
+<% end -%>
