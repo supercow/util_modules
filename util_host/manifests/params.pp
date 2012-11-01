@@ -13,5 +13,6 @@ class util_host::params {
   $features = [
     'git', #git client
     'rcfiles', #system wide rc files (vimrc, etc)
+    'networking', # static network configuration
   ]
 }
