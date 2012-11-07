@@ -2,7 +2,7 @@
 
 # This must be specified as a series of arguments to puppet-lint
 # example: puppet_lint_exclusions='--no-documentation-check --no-star_comments-check'
-puppet_lint_exclusions='--no-documentation-check'
+puppet_lint_exclusions='--no-documentation-check --no-80chars-check'
 
 puppet_lint_warning_given=false
 puppet_parser_validated=true
