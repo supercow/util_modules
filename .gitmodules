@@ -7,3 +7,6 @@
 [submodule "stdlib"]
 	path = stdlib
 	url = https://github.com/puppetlabs/puppetlabs-stdlib
+[submodule "openvpn"]
+	path = openvpn
+	url = https://github.com/xaque208/puppet-openvpn.git
